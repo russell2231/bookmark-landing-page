@@ -463,13 +463,21 @@ header nav .btn {
   flex-direction: column;
 }
 
-.form-container input {
+.form-container .email-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container .email-container input {
+  width: 100%;
   padding: 0.7rem 1rem;
   border-radius: 5px;
   border: none;
   margin-bottom: 1rem;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   color: hsl(229, 31%, 21%);
+  position: relative;
 }
 
 .form-container input::placeholder {
@@ -478,6 +486,27 @@ header nav .btn {
 
 .form-container input:focus {
   outline: none;
+}
+
+.form-container.error .email-container input {
+  background: url(images/icon-error.svg) no-repeat right 10px center, #fff;
+  border: 2px solid hsl(0, 94%, 66%);
+}
+
+.form-container .error-message {
+  display: none;
+  width: 100%;
+  background-color: hsl(0, 94%, 66%);
+  margin: -1rem 0 1rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 10px;
+  font-style: italic;
+  text-align: left;
+  border-radius: 0 0 5px 5px;
+}
+
+.form-container.error .error-message {
+  display: initial;
 }
 
 .form-container .btn {
@@ -801,9 +830,19 @@ footer {
     justify-content: space-between;
   }
 
-  .form-container input {
-    margin: 0;
+  .form-container .email-container {
+    position: relative;
     width: 70%;
+  }
+
+  .form-container .email-container input {
+    margin: 0;
+  }
+
+  .form-container .error-message {
+    position: absolute;
+    margin: 0;
+    bottom: -20px;
   }
 
   .form-container .btn {
